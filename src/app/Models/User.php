@@ -12,9 +12,9 @@ class User
     public string $avatar;
     private Storage $storage;
 
-    public function __construct()
+    public function __construct(Storage $storage)
     {
-        $this->storage = new Storage();
+        $this->storage = $storage;
         $this->id = 'use-' . rand(1, 100);
     }
 
