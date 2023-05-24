@@ -1,0 +1,18 @@
+{
+    "name": "rickygomez/service-container-php",
+    "description": "This repository was created with the aim of being a study on service container in php",
+    "license": "gnu gpl v3",
+    "autoload": {
+        "psr-4": {
+            "Rickygomez\\ServiceContainerPhp\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Ricardo Gomez (Rickygomez)",
+            "email": "ricardo@assys.com.br"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
