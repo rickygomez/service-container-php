@@ -8,22 +8,11 @@ use App\Models\User;
 require_once __DIR__ . '/../vendor/autoload.php';
 
 $container = Container::getInstance();
-$container->set(
-    Logger::class,
-    fn (Container $container) => new Logger()
-);
-$container->set(
-    Storage::class,
-    fn (Container $container) => new Storage(
-        $container->get(Logger::class)
-    )
-);
-$container->set(
-    User::class,
-    fn (Container $container) => new User(
-        $container->get(Storage::class)
-    )
-);
+$container->set(User::class, User::class);
+$container->set(Storage::class, Storage::class);
+// Removed Looger from set because the container will resolve the dependency automatically using the key
+//$container->set(Logger::class, Logger::class); 
+
 dump('Container informations');
 dump($container);
 
