@@ -10,3 +10,9 @@ This repository was created with the aim of being a study on service container i
 ## References
 
 🚀 ENTENDA PRA VALER: INJEÇÃO DE DEPENDÊNCIA (EM QUALQUER APLICAÇÃO PHP) 😲 Com o Pinguim do Laravel! [https://www.youtube.com/watch?v=xtjdLiCP6rw]
+
+## Run
+
+~~~shell
+php src/index.php
+~~~
