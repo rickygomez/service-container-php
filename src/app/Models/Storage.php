@@ -7,8 +7,9 @@ class Storage
     private string $id;
     private Logger $logger;
 
-    public function __construct(Logger $logger)
-    {
+    public function __construct(
+        Logger $logger,
+    ) {
         $this->logger = $logger;
         $this->id = 'stg-' . rand(1, 100);
     }

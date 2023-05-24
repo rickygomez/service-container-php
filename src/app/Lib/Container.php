@@ -26,6 +26,22 @@ class Container
 
     public function get(string $key)
     {
-        return $this->instances[$key]($this);
+        $reflatedClass = new \ReflectionClass($this->instances[$key] ?? $key);
+
+        if (!$reflatedClass->getConstructor()) {
+            return $reflatedClass->newInstance();
+        }
+
+        $parameters = $reflatedClass->getConstructor()->getParameters();
+        $parameters = array_map(function ($parameter) {
+            $type = $parameter->getType();
+            return $this->get($type->getName());
+        }, $parameters);
+
+        if (count($parameters)) {
+            return $reflatedClass->newInstanceArgs($parameters);
+        }
+
+        return $reflatedClass->newInstance();
     }
 }
